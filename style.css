@@ -1,3 +1,21 @@
+.logo {
+    text-align: center;
+    font-family: Impact;
+}
+
+
+@media (max-width: 800px) {
+        .logo img {
+            width: 95%;
+        }
+}
+
+@media (min-width: 800px) {
+    .logo img {
+        width: 35%;
+    }
+}
+
 .container {
     text-align: center;
     font-family: Impact;
