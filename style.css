@@ -28,3 +28,11 @@ body {
      to {background-position:0 -200%}
 }
 
+p#imagefooter {
+    font-size: smaller;
+    font-style: italic;
+}
+
+img#yorimg {
+    height: 15vh;
+}
