@@ -4,17 +4,12 @@
 }
 
 
-@media (max-width: 800px) {
-        .logo img {
-            width: 95%;
-        }
+
+.logo img {
+    width: 350px;
 }
 
-@media (min-width: 800px) {
-    .logo img {
-        width: 35%;
-    }
-}
+
 
 .container {
     text-align: center;
@@ -31,6 +26,10 @@ html {
     animation: a 3s linear infinite;
 }
 
+@keyframes a {
+    to {background-position:0 -200%}
+}
+
 body {
     min-height:100%;
 }
@@ -42,15 +41,21 @@ body {
     gap: 30px;
 }
 
-@keyframes a {
-     to {background-position:0 -200%}
-}
-
 p#imagefooter {
     font-size: smaller;
     font-style: italic;
 }
 
-img#yorimg {
-    height: 15vh;
+img#truan {
+    max-height: 35vw;
+    animation: rotation 2s infinite linear;
 }
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
