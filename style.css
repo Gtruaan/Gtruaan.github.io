@@ -53,9 +53,13 @@ img#truan {
 
 @keyframes rotation {
     from {
-      transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-    to {
-      transform: rotate(359deg);
+        to {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        transform: rotate(359deg);
     }
-  }
+}
