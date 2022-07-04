@@ -1,65 +1,63 @@
-.logo {
-    text-align: center;
-    font-family: Impact;
-}
-
-
-
-.logo img {
-    width: 350px;
-}
-
-
-
-.container {
-    text-align: center;
-    font-family: Impact;
-}
-
-html {
-    background: 
-    linear-gradient(rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%,
-     rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%,
-     rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%,
-     rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%) 
-    0 0/100% 200%;
-    animation: a 3s linear infinite;
-}
-
-@keyframes a {
-    to {background-position:0 -200%}
-}
-
 body {
-    min-height:100%;
+    background-color: #F0EBE3;
+    font-family: 'Finlandica', sans-serif;
+    color: #202c2e;
 }
 
-.container .socials {
-    align-items: center;
-    justify-content: center;
+h1 {
+    font-size: 6em;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 3em;
+    margin-top: 10px;
+}
+.main-container {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20%;
 }
 
-p#imagefooter {
-    font-size: smaller;
-    font-style: italic;
+#footer {
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
-img#truan {
-    max-height: 35vw;
-    animation: rotation 2s infinite linear;
+#myname {
+    text-decoration: none;
+    color: #202c2e;
 }
 
-@keyframes rotation {
-    from {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        transform: rotate(0deg);
+#myname:hover {
+    color: rgb(88, 88, 88);
+}
+
+@media only screen and (max-width: 768px) {
+    html { font-size: 100%; }
+    h1 { font-size: 4.5em; }
+    h2 { font-size: 2em; }
+    #footer { font-size: 1.2em }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #312a2a;
+        color: #F0EBE3;
     }
-        to {
-        -webkit-transform: rotate(359deg);
-        -moz-transform: rotate(359deg);
-        transform: rotate(359deg);
+
+    #myname {
+        text-decoration: none;
+        color: #F0EBE3;
+        transition: color .3s;
+        -webkit-transition: color .3s;
+    }
+    
+    #myname:hover {
+        color: rgb(167, 167, 167);
     }
 }
