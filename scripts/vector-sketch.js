@@ -51,10 +51,10 @@ Aqui empieza la logica con p5.js
 
 // Media query
 let canvasSize;
-if (window.innerWidth > 768) {
+if (window.innerWidth > 1080) {
     canvasSize = 400;
 } else {
-    canvasSize = .9 * window.innerWidth;
+    canvasSize = .9 * window.innerWidth ;
 }
 
 let particleSlider, trailSlider, posChargeSlider, negChargeSlider, viewSelect;
