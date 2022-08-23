@@ -54,7 +54,7 @@ let canvasSize;
 if (window.innerWidth > 768) {
     canvasSize = 400;
 } else {
-    canvasSize = 900;
+    canvasSize = .9 * window.innerWidth;
 }
 
 let particleSlider, trailSlider, posChargeSlider, negChargeSlider, viewSelect;
