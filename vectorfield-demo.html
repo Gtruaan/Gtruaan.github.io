@@ -19,13 +19,14 @@
 
 <body>
         <div class="main-container">
-        <h2>Demo para FTEM - Visualización de Campo Eléctrico</h2>
+        <h2 id="demotitle">Demo para FTEM</h2>
+        <h3>Campo Eléctrico</h3>
         <div id="canvas"></div>
         <h3><a id="vectorinfo" href="https://es.wikipedia.org/wiki/Campo_el%C3%A9ctrico" target="_blank">Campo Eléctrico</a> que pasa ctmmmm</h3>
         <form class="sliders">
             <!-- Cambiar tipo de vista -->
             <input type="checkbox" id="viewSelect" name="viewSelect" value="true">
-            <label for="viewSelect">No tocar este boton!!!</label>
+            <label for="viewSelect">No tocar (rompe todo)</label>
             <!-- Cambiar cantidad de particulas-->
             <p>Cantidad de particulas</p>
             <input id="particleSlider" type="range" min="0" max="2000" value="900" step="25" />
@@ -33,13 +34,13 @@
             <p>Estela</p>
             <input id="trailSlider" type="range" min="220" max="254" value="250" />
             <!-- Cambiar cantidad de particulas-->
-            <p>Carga positiva</p>
+            <p>Carga A</p>
             <input id="posChargeSlider" type="range" min="-500" max="500" value="70" step="10" />
             <!-- Cambiar cantidad de particulas-->
-            <p>Carga negativa</p>
+            <p>Carga B</p>
             <input id="negChargeSlider" type="range" min="-500" max="500" value="-70" step="10" />
         </form>
-        <h3>@gtruan</h3>
+        <h3><a id="vectorinfo" href="https://www.instagram.com/gtruan/" target="_blank">@gtruan</a></h3>
     </div>
 </body>
 </html>
