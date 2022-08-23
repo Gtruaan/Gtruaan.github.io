@@ -44,21 +44,3 @@ h2 {
     h2 { font-size: 2em; }
     #footer { font-size: 1.2em }
 }
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #312a2a;
-        color: #F0EBE3;
-    }
-
-    #myname {
-        text-decoration: none;
-        color: #F0EBE3;
-        transition: color .3s;
-        -webkit-transition: color .3s;
-    }
-
-    #myname:hover {
-        color: rgb(167, 167, 167);
-    }
-}
