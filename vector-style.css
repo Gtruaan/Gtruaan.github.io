@@ -1,0 +1,11 @@
+.main-container {
+    margin-top: 0%;
+}
+
+#canvas {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

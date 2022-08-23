@@ -57,7 +57,7 @@ h2 {
         transition: color .3s;
         -webkit-transition: color .3s;
     }
-    
+
     #myname:hover {
         color: rgb(167, 167, 167);
     }
