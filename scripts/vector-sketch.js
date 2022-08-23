@@ -17,8 +17,8 @@ class Charge {
     getFieldAt(position) {
         let r = Math.sqrt((this.pos[0] - position[0]) ** 2 + (this.pos[1] - position[1]) ** 2);
         // ???????
-        return [(this.chargeValue / (r ** 2)) * (this.pos[0] - position[0]) / r,
-        (this.chargeValue / (r ** 2)) * (this.pos[1] - position[1]) / r];
+        return [(this.chargeValue / (r ** 2)) * (this.pos[0] - position[0]),
+        (this.chargeValue / (r ** 2)) * (this.pos[1] - position[1])];
     }
 }
 
@@ -31,8 +31,8 @@ class Particle {
     update(field) {
         this.pos[0] += this.vel[0];
         this.pos[1] += this.vel[1];
-        this.vel[0] += field[0];
-        this.vel[1] += field[1];
+        this.vel[0] = field[0];
+        this.vel[1] = field[1];
     }
 }
 
@@ -54,7 +54,7 @@ let canvasSize;
 if (window.innerWidth > 768) {
     canvasSize = 400;
 } else {
-    canvasSize = 700;
+    canvasSize = 900;
 }
 
 let particleSlider, trailSlider, posChargeSlider, negChargeSlider, viewSelect;
@@ -68,7 +68,6 @@ function setup() {
     myCanvas.parent("canvas");
     background(0, 0, 0);
     fill(0, 255, 255);
-    noStroke();
 
     particleSlider = select("#particleSlider");
     trailSlider = select("#trailSlider");
@@ -79,6 +78,8 @@ function setup() {
 
 function draw() {
     if (!viewSelect.checked()) {
+        // PARTICLE SIMULATION
+        noStroke();
         background(0, 0, 0, 255 - trailSlider.value())
 
         for (let i = 0; i < 10; i++) {
@@ -93,15 +94,15 @@ function draw() {
             ellipse(particle.pos[0], particle.pos[1], canvasSize / 160, canvasSize / 160);
         }
     } else {
-        background(255)
+        // VECTOR DRAWING
+        stroke(.2);
+        background(255);
 
-        for (let x = 0; x < canvasSize; x += 10) {
-            for (let y = 0; y < canvasSize; y += 10) {
-                fill(0, 0, 0, 10)
-                stroke(.2)
-                vector = getTotalField([x, y])
-                norm = (vector[0] ** 2 + vector[1] ** 2)
-                line(x, y, (x + vector[0] / norm), y + (vector[1] / norm))
+        fill(255, 0, 0, 10);
+        for (let x = 0; x < canvasSize; x += 20) {
+            for (let y = 0; y < canvasSize; y += 20) {
+                vector = getTotalField([x, y]);
+                line(x, y, x + 10 * vector[0], y + 10 * vector[1]);
             }
         }
     }
