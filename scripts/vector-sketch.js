@@ -6,6 +6,8 @@ if (window.innerWidth > 1080) {
     canvasSize = .8 * window.innerWidth ;
 }
 
+const scaleDistance = canvasSize/400;
+
 /*
 Aqui empieza toda la logica para generar y simular el campo
 
@@ -23,11 +25,11 @@ class Charge {
     }
     // No Culon's constant because otherwise field would be huuuuuuuge at the scale we're working on
     getFieldAt(position) {
-        const k = 4;
-        let r = Math.sqrt((this.pos[0] - position[0])**2 + (this.pos[1] - position[1])**2)/k * canvasSize/400;
+        const k = 4; // proporcionalidad
+        let r = Math.sqrt((this.pos[0] - position[0])**2 + (this.pos[1] - position[1])**2)/k / scaleDistance;
         // ???????
-        return [(this.chargeValue / (r**3)) * (this.pos[0] - position[0])/k  * canvasSize/400,
-        (this.chargeValue / (r**3)) * (this.pos[1] - position[1])/k  * canvasSize/400];
+        return [(this.chargeValue / (r**3)) * (this.pos[0] - position[0])/k  * scaleDistance,
+        (this.chargeValue / (r**3)) * (this.pos[1] - position[1])/k * canvasSize/400];
     }
 }
 
@@ -93,7 +95,7 @@ function draw() {
         for (const particle of particleArray) {
             let field = getTotalField(particle.pos);
             particle.update(field);
-            ellipse(particle.pos[0], particle.pos[1], canvasSize / 200, canvasSize / 200);
+            ellipse(particle.pos[0], particle.pos[1], canvasSize/200, canvasSize/200);
         }
     } else {
         // VECTOR DRAWING
@@ -111,12 +113,12 @@ function draw() {
         }
     }
     chargeA.chargeValue = posChargeSlider.value();
-    chargeA.pos[0] = (canvasSize - distanceSlider.value() * canvasSize/400) / 2
+    chargeA.pos[0] = (canvasSize - distanceSlider.value() * scaleDistance)/2
     if (chargeA.chargeValue > 0) { fill(255, 0, 0); } else { fill(0, 0, 255); }
-    ellipse(chargeA.pos[0], chargeA.pos[1], canvasSize / 20, canvasSize / 20);
+    ellipse(chargeA.pos[0], chargeA.pos[1], canvasSize/20, canvasSize/20);
 
     chargeB.chargeValue = negChargeSlider.value();
-    chargeB.pos[0] = (canvasSize + distanceSlider.value() * canvasSize/400) / 2
+    chargeB.pos[0] = (canvasSize + distanceSlider.value() * scaleDistance)/2
     if (chargeB.chargeValue > 0) { fill(255, 0, 0); } else { fill(0, 0, 255); }
-    ellipse(chargeB.pos[0], chargeB.pos[1], canvasSize / 20, canvasSize / 20);
+    ellipse(chargeB.pos[0], chargeB.pos[1], canvasSize/20, canvasSize/20);
 }
