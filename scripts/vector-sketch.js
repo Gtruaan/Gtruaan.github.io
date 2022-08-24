@@ -103,11 +103,12 @@ function draw() {
         background(255);
 
         fill(255, 0, 0, 10);
-        for (let x = 0; x < canvasSize + 1; x += 20) {
-            for (let y = 0; y < canvasSize + 1; y += 20) {
+        arrowSteps = canvasSize/20
+        for (let x = 0; x < canvasSize + 1; x += arrowSteps) {
+            for (let y = 0; y < canvasSize + 1; y += arrowSteps) {
                 vector = getTotalField([x, y]);
                 norm = Math.sqrt(vector[0]**2 + vector[1]**2);
-                strokeWeight(Math.min(norm, 4))
+                strokeWeight(Math.max(Math.min(norm, 4.5), 1))
                 line(x, y, x + 10 * vector[0] / norm, y + 10 * vector[1] / norm);
             }
         }
