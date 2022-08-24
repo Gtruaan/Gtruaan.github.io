@@ -15,10 +15,12 @@ class Charge {
     }
     // No Culon's constant because otherwise field would be huuuuuuuge at the scale we're working on
     getFieldAt(position) {
-        let r = Math.sqrt((this.pos[0] - position[0]) ** 2 + (this.pos[1] - position[1]) ** 2);
+        const k = 4;
+        const exponent = 3;
+        let r = Math.sqrt((this.pos[0] - position[0])**2 + (this.pos[1] - position[1])**2)/k;
         // ???????
-        return [(this.chargeValue / (r ** 2)) * (this.pos[0] - position[0]),
-        (this.chargeValue / (r ** 2)) * (this.pos[1] - position[1])];
+        return [(this.chargeValue / (r**exponent)) * (this.pos[0] - position[0])/k,
+        (this.chargeValue / (r**exponent)) * (this.pos[1] - position[1])/k];
     }
 }
 
@@ -54,10 +56,10 @@ let canvasSize;
 if (window.innerWidth > 1080) {
     canvasSize = 400;
 } else {
-    canvasSize = .9 * window.innerWidth ;
+    canvasSize = .8 * window.innerWidth ;
 }
 
-let particleSlider, trailSlider, posChargeSlider, negChargeSlider, viewSelect;
+let particleSlider, trailSlider, posChargeSlider, negChargeSlider, viewSelect, distanceSlider;
 
 let particleArray = [];
 let chargeA = new Charge(canvasSize / 5, canvasSize / 2, 70);
@@ -74,6 +76,7 @@ function setup() {
     posChargeSlider = select("#posChargeSlider");
     negChargeSlider = select("#negChargeSlider");
     viewSelect = select("#viewSelect")
+    distanceSlider = select("#distanceSlider")
 }
 
 function draw() {
@@ -91,26 +94,30 @@ function draw() {
         for (const particle of particleArray) {
             let field = getTotalField(particle.pos);
             particle.update(field);
-            ellipse(particle.pos[0], particle.pos[1], canvasSize / 160, canvasSize / 160);
+            ellipse(particle.pos[0], particle.pos[1], canvasSize / 200, canvasSize / 200);
         }
     } else {
         // VECTOR DRAWING
-        stroke(.2);
+        stroke("red");
         background(255);
 
         fill(255, 0, 0, 10);
-        for (let x = 0; x < canvasSize; x += 20) {
-            for (let y = 0; y < canvasSize; y += 20) {
+        for (let x = 0; x < canvasSize + 1; x += 20) {
+            for (let y = 0; y < canvasSize + 1; y += 20) {
                 vector = getTotalField([x, y]);
-                line(x, y, x + 10 * vector[0], y + 10 * vector[1]);
+                norm = Math.sqrt(vector[0]**2 + vector[1]**2);
+                strokeWeight(Math.min(norm, 4))
+                line(x, y, x + 10 * vector[0] / norm, y + 10 * vector[1] / norm);
             }
         }
     }
     chargeA.chargeValue = posChargeSlider.value();
+    chargeA.pos[0] = (canvasSize - distanceSlider.value()) / 2
     if (chargeA.chargeValue > 0) { fill(255, 0, 0); } else { fill(0, 0, 255); }
     ellipse(chargeA.pos[0], chargeA.pos[1], canvasSize / 20, canvasSize / 20);
 
     chargeB.chargeValue = negChargeSlider.value();
+    chargeB.pos[0] = (canvasSize + distanceSlider.value()) / 2
     if (chargeB.chargeValue > 0) { fill(255, 0, 0); } else { fill(0, 0, 255); }
     ellipse(chargeB.pos[0], chargeB.pos[1], canvasSize / 20, canvasSize / 20);
 }
