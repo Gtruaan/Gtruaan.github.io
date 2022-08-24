@@ -1,3 +1,11 @@
+// Media query
+let canvasSize;
+if (window.innerWidth > 1080) {
+    canvasSize = 400;
+} else {
+    canvasSize = .8 * window.innerWidth ;
+}
+
 /*
 Aqui empieza toda la logica para generar y simular el campo
 
@@ -16,11 +24,10 @@ class Charge {
     // No Culon's constant because otherwise field would be huuuuuuuge at the scale we're working on
     getFieldAt(position) {
         const k = 4;
-        const exponent = 3;
-        let r = Math.sqrt((this.pos[0] - position[0])**2 + (this.pos[1] - position[1])**2)/k;
+        let r = Math.sqrt((this.pos[0] - position[0])**2 + (this.pos[1] - position[1])**2)/k * canvasSize/400;
         // ???????
-        return [(this.chargeValue / (r**exponent)) * (this.pos[0] - position[0])/k,
-        (this.chargeValue / (r**exponent)) * (this.pos[1] - position[1])/k];
+        return [(this.chargeValue / (r**3)) * (this.pos[0] - position[0])/k  * canvasSize/400,
+        (this.chargeValue / (r**3)) * (this.pos[1] - position[1])/k  * canvasSize/400];
     }
 }
 
@@ -50,14 +57,6 @@ Aqui termina la fisica
 
 Aqui empieza la logica con p5.js
 */
-
-// Media query
-let canvasSize;
-if (window.innerWidth > 1080) {
-    canvasSize = 400;
-} else {
-    canvasSize = .8 * window.innerWidth ;
-}
 
 let particleSlider, trailSlider, posChargeSlider, negChargeSlider, viewSelect, distanceSlider;
 
@@ -112,12 +111,12 @@ function draw() {
         }
     }
     chargeA.chargeValue = posChargeSlider.value();
-    chargeA.pos[0] = (canvasSize - distanceSlider.value()) / 2
+    chargeA.pos[0] = (canvasSize - distanceSlider.value() * canvasSize/400) / 2
     if (chargeA.chargeValue > 0) { fill(255, 0, 0); } else { fill(0, 0, 255); }
     ellipse(chargeA.pos[0], chargeA.pos[1], canvasSize / 20, canvasSize / 20);
 
     chargeB.chargeValue = negChargeSlider.value();
-    chargeB.pos[0] = (canvasSize + distanceSlider.value()) / 2
+    chargeB.pos[0] = (canvasSize + distanceSlider.value() * canvasSize/400) / 2
     if (chargeB.chargeValue > 0) { fill(255, 0, 0); } else { fill(0, 0, 255); }
     ellipse(chargeB.pos[0], chargeB.pos[1], canvasSize / 20, canvasSize / 20);
 }
