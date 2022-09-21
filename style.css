@@ -1,7 +1,7 @@
 body {
-    background-color: #b6eff5;
+    background-color: #E4FCF9;
     font-family: 'Finlandica', sans-serif;
-    color: #18282b;
+    color: #4B89AC;
 }
 
 h1 {
@@ -31,11 +31,11 @@ h2 {
 
 #myname {
     text-decoration: none;
-    color: #18282b;
+    color: #4B89AC;
 }
 
 #myname:hover {
-    color: rgb(77, 96, 96);
+    color: #326582;
 }
 
 @media only screen and (max-width: 768px) {
