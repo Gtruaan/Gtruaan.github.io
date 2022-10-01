@@ -42,5 +42,6 @@ h2 {
     html { font-size: 100%; }
     h1 { font-size: 4.5em; }
     h2 { font-size: 2em; }
+    main { margin-top: 30%; }
     #footer { font-size: 1.2em }
 }
