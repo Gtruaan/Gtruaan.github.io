@@ -21,12 +21,12 @@ body {
 
 main {
     margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 15%;;
 }
 
 #gtruan-image {
     max-height: 500px;
-    -webkit-filter: drop-shadow(0px 0px 14px var(--gtruan-glow));
-    filter: drop-shadow(0px 0px 14px var(--gtruan-glow));
 
     animation-name: floating;
     animation-duration: 3s;
@@ -34,14 +34,14 @@ main {
     animation-timing-function: ease-in-out;
 }
 
-#description-text {
+.description-text, a:link, a:visited {
     font-size: 70px;
     color: var(--text-color);
 
     text-shadow: 5px 5px var(--text-shadow);
-    -webkit-filter: drop-shadow(0px 0px 2px var(--gtruan-glow));
-    filter: drop-shadow(0px 0px 2px var(--gtruan-glow));
 }
+
+
 
 #emoji-image {
     max-height: 500px;

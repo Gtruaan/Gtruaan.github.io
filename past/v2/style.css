@@ -1,0 +1,47 @@
+body {
+    background-color: #E4FCF9;
+    font-family: 'Finlandica', sans-serif;
+    color: #4B89AC;
+}
+
+h1 {
+    font-size: 6em;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: 3em;
+    margin-top: 10px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 40%;
+}
+
+#footer {
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#myname {
+    text-decoration: none;
+    color: #4B89AC;
+}
+
+#myname:hover {
+    color: #326582;
+}
+
+@media only screen and (max-width: 768px) {
+    html { font-size: 100%; }
+    h1 { font-size: 4.5em; }
+    h2 { font-size: 2em; }
+    main { margin-top: 30%; }
+    #footer { font-size: 1.2em }
+}

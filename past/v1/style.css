@@ -1,0 +1,65 @@
+.logo {
+    text-align: center;
+    font-family: Impact;
+}
+
+
+
+.logo img {
+    width: 350px;
+}
+
+
+
+.container {
+    text-align: center;
+    font-family: Impact;
+}
+
+html {
+    background: 
+    linear-gradient(rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%,
+     rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%,
+     rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%,
+     rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%) 
+    0 0/100% 200%;
+    animation: a 3s linear infinite;
+}
+
+@keyframes a {
+    to {background-position:0 -200%}
+}
+
+body {
+    min-height:100%;
+}
+
+.container .socials {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+}
+
+p#imagefooter {
+    font-size: smaller;
+    font-style: italic;
+}
+
+img#truan {
+    max-height: 35vw;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+        to {
+        -webkit-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
