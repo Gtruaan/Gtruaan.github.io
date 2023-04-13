@@ -8,7 +8,7 @@
 body {
     background-color: var(--bg-color);
     background-image: url("assets/bg.jpg");
-    background-size: 600px;
+    background-size: 1000px;
     background-repeat: repeat;
 
     font-family: "VT323";
@@ -25,15 +25,6 @@ main {
     margin-right: 15%;;
 }
 
-#gtruan-image {
-    max-height: 500px;
-
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
 .description-text, a:link, a:visited {
     font-size: 70px;
     color: var(--text-color);
@@ -41,16 +32,20 @@ main {
     text-shadow: 5px 5px var(--text-shadow);
 }
 
-
-
-#emoji-image {
-    max-height: 500px;
+#cat-image {
+    max-height: 600px;
     -webkit-filter: drop-shadow(0px 0px 14px var(--gtruan-glow));
     filter: drop-shadow(0px 0px 14px var(--gtruan-glow));
+
+        
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes floating {
     0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 20px) rotate(2deg); }
-    100%   { transform: translate(0, 0px) rotate(0deg); }   
+    50%  { transform: translate(0, 10px); }
+    100%   { transform: translate(0, 0px); }   
 }

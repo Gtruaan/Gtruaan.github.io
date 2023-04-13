@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <title>virus!!!</title>
     <link rel="stylesheet" href="style.css" />
@@ -18,12 +18,15 @@
   <body>
     <main>
         <p class="description-text">
-          ahora mismo me siento atrapado<br></p>
-        <p class="description-text"> 
-          tengo muchas cosas en la cabeza <br></p>
-        <p class="description-text">
-          solo quiero vivir un rato </p>
-        <br><br>
+          Bienvenidx a gtruan.com
+          <br>.<br>
+          Antes de que te vayas<br>
+          hazle cariño al gato xfa
+        </p>
+
+        <img src="assets/cat.png" id="cat-image">
+
+        <!-- links -->
         <p class="description-text">
           links:
           <br>
@@ -34,12 +37,15 @@
           <a href="assets/resume.pdf" target="_blank">cv</a>
           ·
           <a href="https://open.spotify.com/user/212npf6tf66bjg3i6wadsjvaa?si=5396e0a978474f10" target="_blank">sp</a>
-          <br><br>
+          <br>
           <a href="past/index.html">versiones pasadas :)</a>
         </p>
 
-        
-
+        <!-- meoooooow -->
+        <script>
+          let meowdio = new Audio("assets/meow.mp3"); 
+          document.getElementById("cat-image").onclick = () => meowdio.play();
+        </script>
     </main>
   </body>
 </html>
