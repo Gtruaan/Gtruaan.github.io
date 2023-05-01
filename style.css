@@ -8,7 +8,7 @@
 body {
     background-color: var(--bg-color);
     background-image: url("assets/bg.jpg");
-    background-size: 1000px;
+    background-size: 1200px;
     background-repeat: repeat;
 
     font-family: "VT323";
@@ -20,7 +20,7 @@ body {
 }
 
 main {
-    margin-top: 15%;
+    margin-top: 10%;
     margin-left: 15%;
     margin-right: 15%;;
 }
