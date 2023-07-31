@@ -8,7 +8,7 @@
 body {
     background-color: var(--bg-color);
     background-image: url("assets/bg.jpg");
-    background-size: 1200px;
+    background-size: 600px;
     background-repeat: repeat;
 
     font-family: "VT323";
@@ -51,6 +51,10 @@ main {
 }
 
 @media screen and (min-width: 769px) {
+    body {
+        background-size: 1200px;
+    }
+
     main {
         margin-top: 4%;
         margin-left: 10%;
