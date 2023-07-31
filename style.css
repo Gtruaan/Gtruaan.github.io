@@ -27,16 +27,16 @@ main {
 }
 
 .description-text, a:link, a:visited {
-    font-size: 70px;
+    font-size: 30px;
     color: var(--text-color);
 
-    text-shadow: 5px 5px var(--text-shadow);
+    text-shadow: 2px 2px var(--text-shadow);
 }
 
 #cat-food-image {
-    min-height: 400px;
-    -webkit-filter: drop-shadow(0px 0px 14px var(--gtruan-glow));
-    filter: drop-shadow(0px 0px 14px var(--gtruan-glow));
+    height: 180px;
+    -webkit-filter: drop-shadow(0px 0px 5px var(--gtruan-glow));
+    filter: drop-shadow(0px 0px 5px var(--gtruan-glow));
         
     animation-name: floating;
     animation-duration: 5s;
@@ -59,11 +59,14 @@ main {
 
     .description-text {
         font-size: 50px;
+
+        text-shadow: 5px 5px var(--text-shadow);
     }
 
     #cat-food-image {
         margin-left: 10%;
 
+        height: 400px;
         -webkit-filter: drop-shadow(0px 0px 10px var(--gtruan-glow));
         filter: drop-shadow(0px 0px 10px var(--gtruan-glow));
     }
