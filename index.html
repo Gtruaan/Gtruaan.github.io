@@ -19,14 +19,43 @@
   <body>
     <main>
         <p class="description-text">
-          Nadie le ha hecho<br>cariño al gato
+          ha llegado un<br>gatito nuevo:)
           <br>.<br>
-          Este se ha ido a<br>buscar el cariño<br>a otro lado
+          este si me lo<br>cuidan bien!!!
           <br>.<br>
-          Ojalá vuelva:(<br>Le dejé comida<br>en el plato
+          (si no me la echo)
         </p>
-
-        <img id="cat-food-image" alt="Comida de gatos" src="assets/cat-food.png">
+        
+        <div id="cat-container">
+          <img id="kitten" alt="Gatito negro muy tierno" 
+          src="assets/kitten.png" class="float" onclick="petCat()">
+          <button id="feed-button" onclick="feedCat()">
+            darle de comer
+          </button>
+        </div>
     </main>
   </body>
+  <script>
+    let feedButton = document.getElementById("feed-button");
+    let kittenImage = document.getElementById("kitten");
+
+    let biteAudio = new Audio("assets/bite.mp3");
+    let meowAudio = new Audio("assets/meow.mp3");
+
+    let petCat = () => {
+      meowAudio.play();
+
+      kittenImage.classList.remove("float");
+      kittenImage.classList.add("shake");
+      setTimeout(() => {
+        kittenImage.classList.remove("shake");
+        kittenImage.classList.add("float")}, 1000);
+    }
+  
+    let feedCat = () => {
+      biteAudio.play();
+    }
+
+    kittenImage.onclick(petCat);
+  </script>
 </html>
